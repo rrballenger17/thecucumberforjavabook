@@ -1,1 +1,10 @@
+hooks/ServerHooks.class
+hooks/WebDriverHooks.class
+nicebank/CashSlotSteps.class
+hooks/SomeTestHooks.class
+support/AtmUserInterface.class
+nicebank/AccountSteps.class
 RunCukesTest.class
+nicebank/TellerSteps.class
+support/KnowsTheDomain.class
+transforms/MoneyConverter.class
