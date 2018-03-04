@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="RunCukesTest" time="10.487" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="RunCukesTest" time="11.189" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
     <property name="java.vm.version" value="25.161-b12"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/Ryan/desktop/thecucumberforjavabook/mybank"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/Ryan/Desktop/thecucumberforjavabook/mybank"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -64,7 +64,7 @@
   </properties>
   <testcase classname="Scenario: Successful withdrawal from an account in credit" name="Given my account has been credited with $200.00" time="0.001"/>
   <testcase classname="Scenario: Successful withdrawal from an account in credit" name="When I withdraw $10" time="0"/>
-  <testcase classname="Scenario: Successful withdrawal from an account in credit" name="Then $10 should be dispensed" time="0"/>
+  <testcase classname="Scenario: Successful withdrawal from an account in credit" name="Then $10 should be dispensed" time="0.001"/>
   <testcase classname="Scenario: Successful withdrawal from an account in credit" name="And the balance of my account should be $190.00" time="0"/>
-  <testcase classname="Scenario: Successful withdrawal from an account in credit" name="Scenario: Successful withdrawal from an account in credit" time="10.486"/>
+  <testcase classname="Scenario: Successful withdrawal from an account in credit" name="Scenario: Successful withdrawal from an account in credit" time="11.187"/>
 </testsuite>

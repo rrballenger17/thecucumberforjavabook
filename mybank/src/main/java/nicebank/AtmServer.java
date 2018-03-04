@@ -22,11 +22,14 @@ public class AtmServer
 
         ServletContextHandler context =
                 new ServletContextHandler(ServletContextHandler.SESSIONS);
+
         context.setContextPath("/");
+
         server.setHandler(context);
 
         context.addServlet(new ServletHolder(
                 new WithdrawalServlet(cashSlot, account)),"/withdraw");
+
         context.addServlet(new ServletHolder(new AtmServlet()),"/");
     }
 
