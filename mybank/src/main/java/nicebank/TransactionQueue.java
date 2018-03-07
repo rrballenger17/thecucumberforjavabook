@@ -16,12 +16,14 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
-
+// reading and writing messages/transactions/files to the directory
 public class TransactionQueue {
+
     private static String MESSAGES_FOLDER = "./messages";
     private static String MESSAGE_FILE_PATH = "%s/%03d";
     private int nextId = 1;
 
+    // delete directory and create a new one
     public static void clear() {
         try {
             FileUtils.deleteDirectory(new File(MESSAGES_FOLDER));

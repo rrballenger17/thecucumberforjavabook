@@ -1,36 +1,51 @@
+/***
+ * Excerpted from "The Cucumber for Java Book",
+ * published by The Pragmatic Bookshelf.
+ * Copyrights apply to this code. It may not be used to create training material,
+ * courses, books, articles, and the like. Contact us if you are in doubt.
+ * We make no guarantees that this code is fit for any purpose.
+ * Visit http://www.pragmaticprogrammer.com/titles/srjcuc for more book information.
+ ***/
 package nicebank;
 
-public class TransactionProcessor {
+import org.javalite.activejdbc.Base;
 
+public class TransactionProcessor {
     private TransactionQueue queue = new TransactionQueue();
 
+    // processes the transctions (e.g. +amount,account-number)
+    // directly modifies the account information in the database
     public void process() {
+        if (!Base.hasConnection()){
+            Base.open(
+                    "com.mysql.jdbc.Driver",
+                    "jdbc:mysql://localhost/bank",
+                    "teller", "password");
+        }
 
         do {
             String message = queue.read();
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
-
-
             if (message.length() > 0) {
-                Money balance = BalanceStore.getBalance();
-                Money transactionAmount = new Money(message);
+                String[] parts = message.split(",");
+
+                Account account = Account.findFirst("number = ?", parts[1]);
+                if (account == null) {
+                    throw new RuntimeException("Account number not found: " + parts[1]);
+                }
+
+                Money transactionAmount = new Money(parts[0]);
 
                 if (isCreditTransaction(message)){
-                    BalanceStore.setBalance(balance.add(transactionAmount));
+                    account.setBalance(account.getBalance().add(transactionAmount));
                 } else {
-                    BalanceStore.setBalance(balance.minus(transactionAmount));
+                    account.setBalance(account.getBalance().minus(transactionAmount));
                 }
             }
         } while (true);
     }
 
-
     private boolean isCreditTransaction(String message) {
         return !message.startsWith("-");
     }
-
 }

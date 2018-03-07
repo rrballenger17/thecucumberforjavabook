@@ -20,7 +20,7 @@ public class WithdrawalServlet extends HttpServlet
         this.account = account;
     }
 
-
+    // teller withdraw and send the response page
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 
             throws ServletException, IOException

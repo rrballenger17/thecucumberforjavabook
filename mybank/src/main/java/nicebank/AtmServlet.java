@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AtmServlet extends HttpServlet
 {
-
+    // atm form page
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
