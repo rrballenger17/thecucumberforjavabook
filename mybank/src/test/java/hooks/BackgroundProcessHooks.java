@@ -16,6 +16,7 @@ import nicebank.TransactionProcessor;
 public class BackgroundProcessHooks {
     private Thread transactionProcessorThread;
 
+    // start separate thread to process transactions
     @Before
     public void startBackgroundThread() {
         transactionProcessorThread = new Thread() {
@@ -28,6 +29,7 @@ public class BackgroundProcessHooks {
         transactionProcessorThread.start();
     }
 
+    // stop transaction thread
     @After
     public void stopBackgroundThread() {
         transactionProcessorThread.interrupt();

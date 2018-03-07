@@ -1,5 +1,6 @@
 package nicebank;
 
+// accesses the account and cashslot
 public class AutomatedTeller  implements Teller {
 
     private CashSlot cashSlot;

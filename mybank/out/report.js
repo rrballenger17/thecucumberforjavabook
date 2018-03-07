@@ -7,19 +7,19 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 713366,
+  "duration": 411930,
   "status": "passed"
 });
 formatter.before({
-  "duration": 1197931002,
+  "duration": 1279526,
   "status": "passed"
 });
 formatter.before({
-  "duration": 15311209,
+  "duration": 80115153,
   "status": "passed"
 });
 formatter.before({
-  "duration": 332454,
+  "duration": 1989861958,
   "status": "passed"
 });
 formatter.scenario({
@@ -60,7 +60,7 @@ formatter.match({
   "location": "AccountSteps.iHaveDeposited$InMyAccount(Money)"
 });
 formatter.result({
-  "duration": 178424051,
+  "duration": 315473187,
   "status": "passed"
 });
 formatter.match({
@@ -73,7 +73,7 @@ formatter.match({
   "location": "TellerSteps.iWithdraw$(int)"
 });
 formatter.result({
-  "duration": 11298618249,
+  "duration": 76289333307,
   "status": "passed"
 });
 formatter.match({
@@ -86,8 +86,9 @@ formatter.match({
   "location": "CashSlotSteps.$ShouldBeDispensed(int)"
 });
 formatter.result({
-  "duration": 2671616,
-  "status": "passed"
+  "duration": 2980575,
+  "error_message": "java.lang.AssertionError: Incorrect amount dispensed - expected:\u003c10\u003e but was:\u003c0\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:743)\n\tat org.junit.Assert.assertEquals(Assert.java:118)\n\tat org.junit.Assert.assertEquals(Assert.java:555)\n\tat nicebank.CashSlotSteps.$ShouldBeDispensed(CashSlotSteps.java:21)\n\tat ✽.Then $10 should be dispensed(cash_withdrawal.feature:5)\n",
+  "status": "failed"
 });
 formatter.match({
   "arguments": [
@@ -99,24 +100,23 @@ formatter.match({
   "location": "AccountSteps.theBalanceOfMyAccountShouldBe$(Money)"
 });
 formatter.result({
-  "duration": 1618323396,
+  "status": "skipped"
+});
+formatter.after({
+  "duration": 64541,
   "status": "passed"
 });
 formatter.after({
-  "duration": 301549,
+  "duration": 254425,
   "status": "passed"
 });
 formatter.after({
-  "duration": 10791111,
+  "duration": 141474202,
   "status": "passed"
 });
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 11173301305,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 66695,
+  "duration": 4919869337,
   "status": "passed"
 });
 });

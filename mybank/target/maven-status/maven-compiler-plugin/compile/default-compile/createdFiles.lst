@@ -3,7 +3,6 @@ nicebank/AtmServer.class
 nicebank/AtmServlet.class
 nicebank/Account.class
 nicebank/CashSlot.class
-nicebank/BalanceStore.class
 nicebank/TransactionProcessor.class
 nicebank/TransactionQueue.class
 nicebank/WithdrawalServlet.class

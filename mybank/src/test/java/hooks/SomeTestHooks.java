@@ -7,7 +7,7 @@ import cucumber.api.java.Before;
 
 import cucumber.api.Scenario;
 
-
+// print start and stop scenario info
 public class SomeTestHooks {
 
     @Before

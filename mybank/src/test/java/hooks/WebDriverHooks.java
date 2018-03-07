@@ -24,6 +24,7 @@ public class WebDriverHooks {
         this.helper = helper;
     }
 
+    // save a screenshot
     @After
     public void finish(Scenario scenario) {
         try {

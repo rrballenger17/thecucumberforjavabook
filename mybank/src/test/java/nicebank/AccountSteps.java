@@ -33,6 +33,8 @@ public class AccountSteps {
 
         int pollIntervalMilliSecs = 100;
 
+        // poll until account balance is updated or 3 seconds
+        // directly accesses database
         while (!helper.getMyAccount().getBalance().equals(amount)
 
                 && timeoutMilliSecs > 0){

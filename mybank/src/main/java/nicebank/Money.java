@@ -3,6 +3,7 @@ package nicebank;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// object for money including dollars and cents
 public class Money {
 
     private final int dollars;

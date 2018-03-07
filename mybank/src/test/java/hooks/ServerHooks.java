@@ -25,6 +25,7 @@ public class ServerHooks {
         this.helper = helper;
     }
 
+    // start atmserver and pass cashslot and account
     @Before
     public void startServer() throws Exception {
         server = new AtmServer(PORT, helper.getCashSlot(), helper.getMyAccount());
