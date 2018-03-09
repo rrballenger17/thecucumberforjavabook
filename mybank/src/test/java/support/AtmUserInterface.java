@@ -19,7 +19,7 @@ import nicebank.Teller;
 
 import hooks.ServerHooks;
 
-class AtmUserInterface implements Teller {
+public class AtmUserInterface implements Teller {
 
     private final EventFiringWebDriver webDriver;
 

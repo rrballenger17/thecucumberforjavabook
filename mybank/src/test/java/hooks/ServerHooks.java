@@ -13,6 +13,7 @@ import cucumber.api.java.Before;
 import cucumber.api.Scenario;
 
 import nicebank.AtmServer;
+import nicebank.CashSlot;
 import support.KnowsTheDomain;
 
 public class ServerHooks {
@@ -20,15 +21,17 @@ public class ServerHooks {
 
     private AtmServer server;
     private KnowsTheDomain helper;
+    private CashSlot cashSlot;
 
-    public ServerHooks(KnowsTheDomain helper) {
+    public ServerHooks(KnowsTheDomain helper, CashSlot cashSlot) {
+        this.cashSlot = cashSlot;
         this.helper = helper;
     }
 
     // start atmserver and pass cashslot and account
     @Before
     public void startServer() throws Exception {
-        server = new AtmServer(PORT, helper.getCashSlot(), helper.getMyAccount());
+        server = new AtmServer(PORT, cashSlot, helper.getMyAccount());
         server.start();
     }
 
