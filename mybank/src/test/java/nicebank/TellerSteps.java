@@ -1,21 +1,21 @@
 package nicebank;
 
 import cucumber.api.java.en.*;
-import support.KnowsTheDomain;
 import support.AtmUserInterface;
+import support.TestAccount;
 
 public class TellerSteps {
 
-    KnowsTheDomain helper;
     AtmUserInterface teller;
+    TestAccount account;
 
-    public TellerSteps(KnowsTheDomain helper, AtmUserInterface teller) {
+    public TellerSteps(AtmUserInterface teller, TestAccount account) {
         this.teller = teller;
-        this.helper = helper;
+        this.account = account;
     }
 
     @When("^I withdraw \\$(\\d+)$")
     public void iWithdraw$(int amount) throws Throwable {
-        teller.withdrawFrom(helper.getMyAccount(), amount);
+        teller.withdrawFrom(account, amount);
     }
 }
