@@ -21,9 +21,9 @@ import hooks.ServerHooks;
 
 public class AtmUserInterface implements Teller {
 
-    private final EventFiringWebDriver webDriver;
+    private final MyWebDriver webDriver;
 
-    public AtmUserInterface(EventFiringWebDriver webDriver){
+    public AtmUserInterface(MyWebDriver webDriver){
         this.webDriver = webDriver;
     }
 
