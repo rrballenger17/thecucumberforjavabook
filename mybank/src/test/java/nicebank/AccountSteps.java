@@ -5,17 +5,15 @@ import cucumber.api.Transform;
 
 import org.junit.*;
 
-import support.TestAccount;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import transforms.MoneyConverter;
 
 
 public class AccountSteps {
 
-    TestAccount account;
-
-    public AccountSteps(TestAccount account) {
-        this.account = account;
-    }
+    @Autowired
+    Account account;
 
     @Given("^my account has been credited with (\\$\\d+\\.\\d+)$")
     public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount)

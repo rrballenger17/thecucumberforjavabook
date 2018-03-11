@@ -18,13 +18,18 @@ import nicebank.Account;
 import nicebank.Teller;
 
 import hooks.ServerHooks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 
 public class AtmUserInterface implements Teller {
 
-    private final MyWebDriver webDriver;
+    @Autowired
+    private EventFiringWebDriver webDriver;
 
-    public AtmUserInterface(MyWebDriver webDriver){
-        this.webDriver = webDriver;
+    @Autowired
+    public AtmUserInterface(){
     }
 
     // load page, input amount, click withdraw

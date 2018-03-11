@@ -13,15 +13,13 @@ import cucumber.api.java.After;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
 
-import support.MyWebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class WebDriverHooks {
 
-    private MyWebDriver driver;
-
-    public WebDriverHooks(MyWebDriver driver) {
-        this.driver = driver;
-    }
+    @Autowired
+    private EventFiringWebDriver driver;
 
     // save a screenshot
     @After
