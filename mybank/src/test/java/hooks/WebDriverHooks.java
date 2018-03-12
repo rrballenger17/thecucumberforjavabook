@@ -31,8 +31,5 @@ public class WebDriverHooks {
         } catch (WebDriverException somePlatformsDontSupportScreenshots) {
             System.err.println(somePlatformsDontSupportScreenshots.getMessage());
         }
-        finally {
-            driver.close();
-        }
     }
 }

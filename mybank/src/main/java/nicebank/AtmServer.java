@@ -2,7 +2,11 @@ package nicebank;
 
 import org.javalite.activejdbc.Base;
 
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
@@ -11,20 +15,25 @@ public class AtmServer
     private final Server server;
 
     public AtmServer(int port, CashSlot cashSlot, Account account) {
-
-        // new jetty server
         server = new Server(port);
 
-        // servletContextHandler
-        ServletContextHandler context =
-                new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/");
-        server.setHandler(context);
+        ContextHandler resourceContext = new ContextHandler();
+        resourceContext.setContextPath("/js");
+        ResourceHandler resourceHandler = new ResourceHandler();
+        resourceHandler.setResourceBase("src/main/webapp/js");
+        resourceContext.setHandler(resourceHandler);
 
-        // servlets - withdraw servlet and atm servlet
-        context.addServlet(new ServletHolder(
+        ServletContextHandler servletContext =
+                new ServletContextHandler(ServletContextHandler.SESSIONS);
+        servletContext.setContextPath("/");
+        servletContext.addServlet(new ServletHolder(
                 new WithdrawalServlet(cashSlot, account)),"/withdraw");
-        context.addServlet(new ServletHolder(new AtmServlet()),"/");
+        servletContext.addServlet(new ServletHolder(new ValidationServlet(cashSlot)),"/validate");
+        servletContext.addServlet(new ServletHolder(new AtmServlet()),"/");
+
+        ContextHandlerCollection contexts = new ContextHandlerCollection();
+        contexts.setHandlers(new Handler[] { resourceContext, servletContext });
+        server.setHandler(contexts);
     }
 
     public void start() throws Exception {
@@ -42,6 +51,8 @@ public class AtmServer
                 "com.mysql.jdbc.Driver",
                 "jdbc:mysql://localhost/bank",
                 "teller", "password");
-        new AtmServer(9988, new CashSlot(), new Account()).start();
+        CashSlot cashSlot = new CashSlot();
+        cashSlot.load(100);
+        new AtmServer(9988, cashSlot, new Account(6789)).start();
     }
 }
